@@ -2,6 +2,10 @@
 
 require('angular/angular');
 require('angular-route/angular-route');
+require('angular-route');
+require('angular-cookies');
+require('angular-base64');
+
 
 var craveApp = angular.module('craveApp', ['ngRoute']);
 

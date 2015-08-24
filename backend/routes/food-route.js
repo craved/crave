@@ -20,12 +20,19 @@ module.exports = function(router) {
         res.json({msg: 'food post has been saved', newFoodPost: newFoodPost});
       });
     });
-  router.route('/foods/food')
+  router.route('/foods/:food')
     .get(function(req, res) {
       var foodQuery = req.query.food.replace('%', ' ')
       FoodPost.find({food: foodQuery}, function(err, food) {
         if(err) return res.status(500).json({msg: 'Cannot get food, \n' + err});
         res.json(food);
-      })
+      });
     })
+    .put(function (req, res) {
+      var foodId = req.params.food;
+      FoodPost.findByIdAndUpdate(foodId, {$inc: {votes: 1}}, function(err, data) {
+        if (err) return res.status(500).json({msg: 'Cannot update this food post, \n' + err});
+        res.json({msg: 'update successful', successful: true, data: data});
+      });
+    });
 }

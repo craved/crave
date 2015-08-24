@@ -1,10 +1,10 @@
-<section class="loginform">
-  <form method="post" action="index.html">
+<section class="loginform" data-ng-controller="authController">
+  <form method="post" data-ng-submit="authSubmit(user)">
     <p>
-      <input type="text" name="loginusername" placeholder="username">
+      <input type="text" name="loginusername" placeholder="username" data-ng-model="user.username">
     </p>
     <p>
-      <input type="text" name="loginpassword" placeholder="password">
+      <input type="text" name="loginpassword" placeholder="password" data-ng-model="user.password">
     </p>
     <p class="remember_login">
       <label>
@@ -13,4 +13,5 @@
       </label>
     </p>
     <button>Login</button>
+  </form>
 </section>
