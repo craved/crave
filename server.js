@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
+var config = require('./configFile')();
 
 
 //MongoDB set-up
@@ -14,6 +15,10 @@ mongoose.connect(MONGOLAB_URI, function(err) {
 
 //Set secret for auth, temporary set-up
 process.env.SECRET = process.env.SECRET || "tempSecretString";
+process.env.CONSUMER_KEY = config.yelp_consumer_key;
+process.env.CONSUMER_SECRET = config.yelp_consumer_secret;
+process.env.TOKEN = config.yelp_token;
+process.env.TOKEN_SECRET = config.yelp_token_secret;
 
 //Routers
 var router = express.Router();
@@ -21,6 +26,7 @@ require(__dirname + '/backend/routes/index-route')(router);
 require(__dirname + '/backend/routes/login-route')(router);
 require(__dirname + '/backend/routes/user-route')(router);
 require(__dirname + '/backend/routes/food-route')(router);
+require(__dirname + '/backend/routes/yelp-route')(router);
 app.use('/api', router);
 
 //404 catch for bad routes
