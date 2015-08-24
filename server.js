@@ -20,6 +20,7 @@ var router = express.Router();
 require(__dirname + '/backend/routes/index-route')(router);
 require(__dirname + '/backend/routes/login-route')(router);
 require(__dirname + '/backend/routes/user-route')(router);
+require(__dirname + '/backend/routes/food-route')(router);
 app.use('/api', router);
 
 //404 catch for bad routes

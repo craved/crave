@@ -3,10 +3,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var restaurantSchema = new Schema({
+var foodPostSchema = new Schema({
   food: String,
   restaurant: String,
   votes: Number
 });
 
-module.exports = mongoose.model('Restaurant', restaurantSchema);
+module.exports = mongoose.model('FoodPost', foodPostSchema);

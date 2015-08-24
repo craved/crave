@@ -1,0 +1,31 @@
+var bodyParser = require('body-parser');
+var FoodPost = require(__dirname + '/../models/FoodPost');
+
+module.exports = function(router) {
+  router.route('/foods')
+    .get(function(req, res) {
+      FoodPost.find({}, function(err, posts) {
+        if (err) return res.status(500).json({msg: 'can not get posts, \n'} + err);
+        res.json({foodPosts: posts})
+      });
+    })
+    .post(function(req, res) {
+      var newFoodPost = new FoodPost({
+        food: req.body.food,
+        restaurant: req.body.restaurant,
+        votes: 0
+      });
+      newFoodPost.save(function(err) {
+        if (err) return res.status(500).json({msg: 'Cannot save food post, \n' + err});
+        res.json({msg: 'food post has been saved', newFoodPost: newFoodPost});
+      });
+    });
+  router.route('/foods/food')
+    .get(function(req, res) {
+      var foodQuery = req.query.food.replace('%', ' ')
+      FoodPost.find({food: foodQuery}, function(err, food) {
+        if(err) return res.status(500).json({msg: 'Cannot get food, \n' + err});
+        res.json(food);
+      })
+    })
+}
