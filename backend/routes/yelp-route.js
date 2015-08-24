@@ -19,4 +19,12 @@ module.exports = function(router) {
         res.json(data);
       });
     });
-}
+  router.route('/yelp/:id')
+    .get(function(req, res) {
+      var id = req.params.id;
+      yelp.business(id, function(err, data) {
+        if (err) return res.status(500).json({msg: 'Yelp search failed, \n ' + err});
+        res.json(data);
+      });
+    });
+};
