@@ -4,6 +4,16 @@ var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
 var config = require('./configFile')();
 
+//Set secret for auth, temporary set-up
+process.env.SECRET = config.secret;
+//Set vars for yelp api access
+process.env.CONSUMER_KEY = config.yelp_consumer_key;
+process.env.CONSUMER_SECRET = config.yelp_consumer_secret;
+process.env.TOKEN = config.yelp_token;
+process.env.TOKEN_SECRET = config.yelp_token_secret;
+//Set Mongo labs uri
+process.env.MONGOLAB_URI = config.mongolabs_uri;
+
 
 //MongoDB set-up
 var MONGOLAB_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/crave-temp';
@@ -12,13 +22,6 @@ mongoose.connect(MONGOLAB_URI, function(err) {
   if (err) console.log('error: ' + err);
   else console.log('MongoDB connection successful.');
 });
-
-//Set secret for auth, temporary set-up
-process.env.SECRET = process.env.SECRET || "tempSecretString";
-process.env.CONSUMER_KEY = config.yelp_consumer_key;
-process.env.CONSUMER_SECRET = config.yelp_consumer_secret;
-process.env.TOKEN = config.yelp_token;
-process.env.TOKEN_SECRET = config.yelp_token_secret;
 
 //Routers
 var router = express.Router();
