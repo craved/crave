@@ -7,8 +7,13 @@
     "test": "gulp"
   },
   "author": "Vi Dang, Lauren McNerney, Hana Fallisgaard",
+  "repository": "https://github.com/craved/crave.git",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.4.4",
+    "angular-base64": "^2.0.5",
+    "angular-cookies": "^1.4.4",
+    "angular-route": "^1.4.4",
     "bcrypt": "^0.8.5",
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
