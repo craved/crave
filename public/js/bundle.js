@@ -45,14 +45,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(9);
-	__webpack_require__(10);
 	__webpack_require__(11);
 	__webpack_require__(12);
 	__webpack_require__(13);
-	__webpack_require__(8);
+	__webpack_require__(10);
 	__webpack_require__(14);
-	module.exports = __webpack_require__(15);
+	__webpack_require__(15);
+	__webpack_require__(9);
+	module.exports = __webpack_require__(8);
 
 
 /***/ },
@@ -70,22 +70,22 @@
 	var craveApp = angular.module('craveApp', ['ngRoute', 'ngCookies', 'base64']);
 
 	//services
-	// require('./services/resourceServices/js')(craveApp);
 	__webpack_require__(8)(craveApp);
-
-	//directives
-	// require('./auth/directives/auth_form_directive')(craveApp);
-
-	//controllers
 	__webpack_require__(9)(craveApp);
 
+	//directives
+	__webpack_require__(10)(craveApp);
+
+	//controllers
+	__webpack_require__(11)(craveApp);
+	__webpack_require__(12)(craveApp);
+
 	//routes
-	// craveApp.config(['$routeProvider', function($routeProvider) {
-	//   $routeProvider
-	//   .when('/', {
-	//     templateUrl:
-	//     controller:
-	//   })
+	craveApp.config(['$routeProvider', function($routeProvider) {
+	  $routeProvider
+	  .when('/food', {
+	    templateUrl: 'templates/food.html'
+	  });
 	//   .when('/about', {
 	//     templateUrl:
 	//   })
@@ -95,7 +95,7 @@
 	//   .otherwise({
 	//     redirectTo: '/'
 	//   });
-	// }]);
+	}]);
 
 
 /***/ },
@@ -30227,135 +30227,6 @@
 	'use strict';
 
 	module.exports = function(app) {
-	  app.factory('auth', ['$http', '$base64', '$cookies', function($http, $base64, $cookies) {
-	    return {
-	      signIn: function(user, callback) {
-	        var encoded = $base64.encode(user.username + ':' + user.password);
-	        $http.get('/api/login', {
-	          headers: {'Authorization': encoded}
-	        })
-	        .success(function(data) {
-	          $cookies.put('jwt', data.token);
-	          callback(null, data.user);
-	        })
-	        .error(function(data) {
-	          callback(data);
-	        })
-	      },
-	      create: function(user, callback) {
-	        $http.post('/api/users', user)
-	          .success(function(data) {
-	            $cookies.put('jwt', data.token);
-	            callback(null, data.user);
-	          })
-	          .error(function(data) {
-	            callback(data);
-	          });
-	      },
-	      logout: function() {
-	        $cookies.put('jwt', '');
-	      },
-	      isSignedIn: function() {
-	        return !!($cookies.get('jwt') && $cookies.get('jwt').length);
-	      }
-	    };
-	  }]);
-	}
-
-
-/***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.controller('authController', ['$scope', 'auth', function($scope, auth) {
-	    $scope.errors = [];
-
-	    $scope.$watch(auth.isSignedIn, function(isSignedIn) {
-	      $scope.isSignedIn = isSignedIn;
-	    });
-
-	    $scope.authSubmit = function(user) {
-	      auth.signIn(user, function(err, data) {
-	        if (err) {
-	          console.log(err);
-	          return $scope.errors.push({msg: 'could not sign in'});
-	        }
-	      });
-	    };
-
-	    $scope.createUser = function(user) {
-	      auth.create(user, function(err, data) {
-	        if (err) {
-	          console.log(err);
-	          return $scope.errors.push({msg: 'could not create user'});
-	        }
-	      }); 
-	    };
-
-	    $scope.signOut = function(user) {
-	      auth.logout();
-	      auth.is
-	    };
-	  }]);
-	};
-
-
-/***/ },
-/* 10 */
-/***/ function(module, exports) {
-
-	
-
-/***/ },
-/* 11 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('footerDirective', function() {
-	    return {
-	      restrict: 'AC',
-	      templateURL: 'templates/footer-template.html',
-	      replace: true
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 12 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
-	  app.directive('loginDirective', function() {
-	    return {
-	      restrict: 'AC',
-	      template: 'templates/login-template.html',
-	      replace: true
-	    }
-	  });
-	};
-
-
-/***/ },
-/* 13 */
-/***/ function(module, exports) {
-
-	
-
-/***/ },
-/* 14 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(app) {
 	  var errorHandler = function(data) {
 	    console.log(data);
 	  };
@@ -30404,28 +30275,164 @@
 
 
 /***/ },
-/* 15 */
+/* 9 */
 /***/ function(module, exports) {
 
 	'use strict';
 
 	module.exports = function(app) {
-	  app.directive('authFormDirective', function() {
+	  app.factory('auth', ['$http', '$base64', '$cookies', function($http, $base64, $cookies) {
+	    return {
+	      signIn: function(user, callback) {
+	        var encoded = $base64.encode(user.username + ':' + user.password);
+	        $http.get('/api/login', {
+	          headers: {'Authorization': encoded}
+	        })
+	        .success(function(data) {
+	          $cookies.put('jwt', data.token);
+	          callback(null, data.user);
+	        })
+	        .error(function(data) {
+	          callback(data);
+	        })
+	      },
+	      create: function(user, callback) {
+	        $http.post('/api/users', user)
+	          .success(function(data) {
+	            $cookies.put('jwt', data.token);
+	            callback(null, data.user);
+	          })
+	          .error(function(data) {
+	            callback(data);
+	          });
+	      },
+	      logout: function() {
+	        $cookies.put('jwt', '');
+	      },
+	      isSignedIn: function() {
+	        return !!($cookies.get('jwt') && $cookies.get('jwt').length);
+	      }
+	    };
+	  }]);
+	}
+
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('foodDirective', function() {
 	    return {
 	      restrict: 'AC',
-	      replace: true,
-	      templateUrl: '/templates/login-template.html',
-	      scope:  {
-	        save: '&',
-	        buttonText: '=',
-	        labelText:'@',
-	        note: '='
-	      },
-	      transclude: true
-	    };
+	      templateURL: '../templates/food.html',
+	      replace: true
+	    }
 	  });
 	};
 
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.controller('authController', ['$scope', 'auth', function($scope, auth) {
+	    $scope.errors = [];
+
+	    $scope.$watch(auth.isSignedIn, function(isSignedIn) {
+	      $scope.isSignedIn = isSignedIn;
+	    });
+
+	    $scope.authSubmit = function(user) {
+	      auth.signIn(user, function(err, data) {
+	        if (err) {
+	          console.log(err);
+	          return $scope.errors.push({msg: 'could not sign in'});
+	        }
+	      });
+	    };
+
+	    $scope.createUser = function(user) {
+	      auth.create(user, function(err, data) {
+	        if (err) {
+	          console.log(err);
+	          return $scope.errors.push({msg: 'could not create user'});
+	        }
+	      }); 
+	    };
+
+	    $scope.signOut = function(user) {
+	      auth.logout();
+	      auth.is
+	    };
+	  }]);
+	};
+
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.controller('foodController', ['$scope', '$http', '$location', 'resource', function($scope, $http, $location, resource) {
+	    var Food = resource('foods');
+	    $scope.errors = [];
+	    $scope.foods = [];    
+	    
+	    $scope.searchFood = function(food) {
+	      $location.path('/food');
+	      console.log('search food food ', food)
+	      console.log('scope fodd food ', $scope.foods)
+	      var datURL = '/api/foods/food?food=' + food.food.replace(' ', '%20');
+	      console.log('dat url', datURL)
+	      $http.get(datURL).success(function(   res) {
+	          console.log('dat responce ', res)
+	           if (res[0] === undefined) {
+	             $scope.foods = food;
+	           } else {
+	             $scope.foods = res; 
+	           }
+	         });
+	    };
+	  }]);
+	};
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.directive('footerDirective', function() {
+	    return {
+	      restrict: 'AC',
+	      templateURL: 'templates/footer-template.html',
+	      replace: true
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	
 
 /***/ }
 /******/ ]);

@@ -6,7 +6,7 @@ module.exports = function(router) {
     .get(function(req, res) {
       FoodPost.find({}, function(err, posts) {
         if (err) return res.status(500).json({msg: 'can not get posts, \n'} + err);
-        res.json({foodPosts: posts})
+        res.json({foodPosts: posts});
       });
     })
     .post(function(req, res) {
@@ -23,7 +23,7 @@ module.exports = function(router) {
     });
   router.route('/foods/:food')
     .get(function(req, res) {
-      var foodQuery = req.query.food.replace('%20', ' ')
+      var foodQuery = req.query.food.replace('%20', ' ');
       FoodPost.find({food: foodQuery}, function(err, food) {
         if(err) return res.status(500).json({msg: 'Cannot get food, \n' + err});
         res.json(food);
@@ -36,4 +36,4 @@ module.exports = function(router) {
         res.json({msg: 'update successful', successful: true, data: data});
       });
     });
-}
+};

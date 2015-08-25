@@ -8,7 +8,7 @@ module.exports = function(req, res, next) {
   if(token) {
     jwt.verify(token, process.env.SECRET, function(err, decoded) {
       if (err) {
-        res.status(500).json({msg:'failed to verify User'})
+        res.status(500).json({msg:'failed to verify User'});
        } else {
        console.log("decoded username", decoded);
         User.findOne({username: decoded}, function(err, user){
@@ -16,7 +16,7 @@ module.exports = function(req, res, next) {
             console.error(err);
             res.status(500).json({msg: "internal server err: failed to handle request"});
           } else {
-            console.log('data found by user.findone in verify:\n', user)
+            console.log('data found by user.findone in verify:\n', user);
 
             req.username = user.username;
             next();
@@ -25,7 +25,6 @@ module.exports = function(req, res, next) {
       }
     });
   } else {
-    res.status(403).json({msg: 'You shall not pass!'})
+    res.status(403).json({msg: 'You shall not pass!'});
   }
-
-}
+};

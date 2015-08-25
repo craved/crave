@@ -26,7 +26,7 @@ module.exports = function(router) {
     .delete(function(req, res) {
       User.find({}).remove().exec(function(err) {
         if(err) return res.status(500).json({msg: 'Server Error: cannot delete users, \n' + err});
-        res.json({msg: 'all users have been deleted. You have committed genocide. I hope you are happy'})
-      })
+        res.json({msg: 'all users have been deleted. You have committed genocide. I hope you are happy'});
+      });
     });
 };

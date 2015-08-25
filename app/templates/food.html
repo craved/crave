@@ -1,0 +1,13 @@
+<section>
+  <h2>Top Restaurants for {{foods[0].food}}</h2>
+  <ul>
+    <li data-ng-repeat="food in foods">
+      <h3>{{food.votes}}</h3>
+      <p>{{food.restaurant}}</p>
+      <p>{{food.comment}}</p>
+      <div data-ng-controller="authController">
+        <button data-ng-if="isSignedIn">Vote for me!</button>
+      </div>
+    </li>
+  </ul>
+</section>

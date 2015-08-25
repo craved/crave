@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = function(app) {
-  app.directive('loginDirective', function() {
+  app.directive('foodDirective', function() {
     return {
       restrict: 'AC',
-      template: 'templates/login-template.html',
+      templateURL: '../templates/food.html',
       replace: true
     }
   });
