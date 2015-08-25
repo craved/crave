@@ -1,20 +1,22 @@
 'use strict';
 
 require('angular/angular');
-require('angular-route/angular-route');
 require('angular-route');
 require('angular-cookies');
 require('angular-base64');
 
 
-var craveApp = angular.module('craveApp', ['ngRoute']);
+var craveApp = angular.module('craveApp', ['ngRoute', 'ngCookies', 'base64']);
 
 //services
-require('./services/resourceServices/js')(craveApp);
+// require('./services/resourceServices/js')(craveApp);
+require('./services/auth_service')(craveApp);
 
 //directives
+// require('./auth/directives/auth_form_directive')(craveApp);
 
 //controllers
+require('./controllers/auth_controller')(craveApp);
 
 //routes
 // craveApp.config(['$routeProvider', function($routeProvider) {

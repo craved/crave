@@ -14,6 +14,7 @@ process.env.TOKEN_SECRET = config.yelp_token_secret;
 //Set Mongo labs uri
 process.env.MONGOLAB_URI = config.mongolabs_uri;
 
+app.use(express.static(__dirname + '/public'));
 
 //MongoDB set-up
 var MONGOLAB_URI = process.env.MONGO_TEST || process.env.MONGOLAB_URI || 'mongodb://localhost/crave-temp';

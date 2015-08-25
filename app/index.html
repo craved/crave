@@ -8,11 +8,24 @@
   <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body data-ng-app="craveApp">
   <header id="header">
     <h1>Crave</h1>
+    <section class="loginform" data-ng-controller="authController">
+      <form method="post" data-ng-if="!isSignedIn">
+        <p>
+          <input type="text" name="loginusername" placeholder="username" data-ng-model="user.username">
+        </p>
+        <p>
+          <input type="text" name="loginpassword" placeholder="password" data-ng-model="user.password">
+        </p>
+        <button data-ng-click="authSubmit(user)">Login</button>
+        <button data-ng-click="createUser(user)">Create User</button>
+      </form>
+      <button data-ng-if="isSignedIn" data-ng-click="signOut(user)">Log Out</button>
+    </section>
   </header>
-    <section data-ng-view>
+    <section>
       <article id="search">
           <ul class="input-list style-1 clearfix">
             <li>
