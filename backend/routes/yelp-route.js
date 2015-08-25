@@ -9,7 +9,7 @@ var yelp = require('yelp').createClient({
 module.exports = function(router) {
   router.route('/queryYelp')
     .get(function(req, res) {
-      var query = req.query.term.replace('%', '+');
+      var query = req.query.term.replace('%20', '+');
       var params = {
         term: query,
         location: 'Seattle'

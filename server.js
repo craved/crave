@@ -16,7 +16,7 @@ process.env.MONGOLAB_URI = config.mongolabs_uri;
 
 
 //MongoDB set-up
-var MONGOLAB_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/crave-temp';
+var MONGOLAB_URI = process.env.MONGO_TEST || process.env.MONGOLAB_URI || 'mongodb://localhost/crave-temp';
 
 mongoose.connect(MONGOLAB_URI, function(err) {
   if (err) console.log('error: ' + err);
