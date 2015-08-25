@@ -9,22 +9,22 @@ require('angular-base64');
 var craveApp = angular.module('craveApp', ['ngRoute', 'ngCookies', 'base64']);
 
 //services
-// require('./services/resourceServices/js')(craveApp);
+require('./services/resource_services')(craveApp);
 require('./services/auth_service')(craveApp);
 
 //directives
-// require('./auth/directives/auth_form_directive')(craveApp);
+require('./directives/food_form_directive')(craveApp);
 
 //controllers
 require('./controllers/auth_controller')(craveApp);
+require('./controllers/food_controller')(craveApp);
 
 //routes
-// craveApp.config(['$routeProvider', function($routeProvider) {
-//   $routeProvider
-//   .when('/', {
-//     templateUrl:
-//     controller:
-//   })
+craveApp.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+  .when('/food', {
+    templateUrl: 'templates/food.html'
+  });
 //   .when('/about', {
 //     templateUrl:
 //   })
@@ -34,4 +34,4 @@ require('./controllers/auth_controller')(craveApp);
 //   .otherwise({
 //     redirectTo: '/'
 //   });
-// }]);
+}]);
