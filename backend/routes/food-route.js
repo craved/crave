@@ -13,6 +13,7 @@ module.exports = function(router) {
       var newFoodPost = new FoodPost({
         food: req.body.food,
         restaurant: req.body.restaurant,
+        comment: req.body.comment,
         votes: 0
       });
       newFoodPost.save(function(err) {
