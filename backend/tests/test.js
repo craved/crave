@@ -87,7 +87,7 @@ describe('Test server routes', function() {
     it('should get response at post /foods', function(done) {
       chai.request('http://localhost:3000/api')
         .post('/foods')
-        .send({food: "test food 2", restaurant: "test rest 2"})
+        .send({food: "test food 2", restaurant: "test rest 2", comment: "this is a test comment"})
         .end(function(err, res) {
           expect(err).to.be.null;
           expect(res).to.have.status(200);
