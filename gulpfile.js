@@ -46,7 +46,7 @@ gulp.task('webpackdev', function() {
                  filename: 'bundle.js'
                }
              }))
-             .pipe(uglify())
+             // .pipe(uglify())
              .pipe(gulp.dest('./public/js/'));
 });
 
@@ -72,7 +72,7 @@ gulp.task('copy', function() {
 });
 
 gulp.task('watch', ['build'], function() {
-  gulp.watch(['app/**/*.js', '*.js'], ['build', 'lint']);
+  gulp.watch(['app/**/*.js', '*.js'], ['build', 'jshint']);
   gulp.watch('app/**/*.html', ['copy']);
 });
 
