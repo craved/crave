@@ -4,7 +4,11 @@ module.exports = function(app) {
   app.controller('foodController', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.errors = [];
     $scope.foods = [];
-    
+
+    $scope.postFood = function() {
+      $location.path('/post');
+    }
+
     $scope.searchFood = function(food) {
       $location.path('/food');
       var datURL = '/api/foods/food?food=' + food.food.replace(' ', '%20');
@@ -12,7 +16,7 @@ module.exports = function(app) {
         if (res[0] === undefined) {
          $scope.foods = food;
         } else {
-         $scope.foods = res; 
+         $scope.foods = res;
         }
       });
     };

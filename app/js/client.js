@@ -15,6 +15,7 @@ require('./services/auth_service')(craveApp);
 //directives
 require('./directives/food_form_directive')(craveApp);
 require('./directives/yelp-form-directive')(craveApp);
+require('./directives/restaurant-post-directive')(craveApp);
 
 //controllers
 require('./controllers/auth_controller')(craveApp);
@@ -26,6 +27,9 @@ craveApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
   .when('/food', {
     templateUrl: 'templates/food.html'
+  })
+  .when('/post', {
+    templateUrl: 'templates/restaurant-post.html'
   });
 //   .when('/about', {
 //     templateUrl:
