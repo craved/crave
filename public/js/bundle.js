@@ -47,11 +47,12 @@
 	__webpack_require__(1);
 	__webpack_require__(12);
 	__webpack_require__(13);
-	__webpack_require__(14);
 	__webpack_require__(15);
-	__webpack_require__(10);
+	__webpack_require__(14);
 	__webpack_require__(16);
+	__webpack_require__(10);
 	__webpack_require__(17);
+	__webpack_require__(18);
 	__webpack_require__(11);
 	__webpack_require__(9);
 	module.exports = __webpack_require__(8);
@@ -30405,11 +30406,9 @@
 	'use strict';
 
 	module.exports = function(app) {
-	  app.controller('foodController', ['$scope', '$http', '$location', 'resource', function($scope, $http, $location, resource) {
-	    var Food = resource('foods');
+	  app.controller('foodController', ['$scope', '$http', '$location', function($scope, $http, $location) {
 	    $scope.errors = [];
 	    $scope.foods = [];
-	    $scope.restaurant = [];
 	    
 	    $scope.searchFood = function(food) {
 	      $location.path('/food');
@@ -30420,6 +30419,13 @@
 	        } else {
 	         $scope.foods = res; 
 	        }
+	      });
+	    };
+
+	    $scope.vote = function(food) {
+	      var datURL = '/api/foods/' + food._id;
+	      $http.put(datURL).success(function(res) {
+	        food.votes++;
 	      });
 	    };
 	  }]);
@@ -30448,10 +30454,42 @@
 /* 15 */
 /***/ function(module, exports) {
 
-	
+	'use strict';
+
+	module.exports = function(app) {
+	  app.controller('cardsController', ['$scope', 'resource', function($scope, resource) {
+
+	    var User = resource('user');
+
+	    // $scope.getUserById = function(id, oneUser) {
+	    //   User.getOne(id, oneUser, function(response) {
+	    //     $scope.user = response;
+	    //   });
+	    // };
+
+	    $scope.destroy = function(id) {
+	      User.destroy(id, function(response) {
+	        console.log('removed user ' + id);
+	      });
+	    };
+
+	    $scope.submitForm = function(oneUser) {
+	      User.submitForm(oneUser, function(response) {
+	        console.log('user submitted: ' + oneUser);
+	      });
+	    };
+	  }]);
+	};
+
 
 /***/ },
 /* 16 */
+/***/ function(module, exports) {
+
+	
+
+/***/ },
+/* 17 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30468,7 +30506,7 @@
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports) {
 
 	
