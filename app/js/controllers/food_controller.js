@@ -5,7 +5,7 @@ module.exports = function(app) {
     $scope.errors = [];
     $scope.foods = [];
 
-    $scope.postFood = function(food, restaurant) {
+    $scope.postFood = function(food, restaurant, restaurants) {
       console.log('food log \n', food.food);
       console.log('restaurant log \n', restaurant.id);
       console.log('comment log \n', food.comment);
@@ -15,6 +15,8 @@ module.exports = function(app) {
         comment: food.comment
       }
       $http.post('/api/foods', newPost).success(function(res) {
+        $scope.restaurants = null;
+        $scope.food.comment = null;
         $scope.foods.push(res.newFoodPost);
       })
     }
