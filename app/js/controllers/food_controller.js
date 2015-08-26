@@ -5,8 +5,18 @@ module.exports = function(app) {
     $scope.errors = [];
     $scope.foods = [];
 
-    $scope.postFood = function() {
-      $location.path('/post');
+    $scope.postFood = function(food, restaurant) {
+      console.log('food log \n', food.food);
+      console.log('restaurant log \n', restaurant.id);
+      console.log('comment log \n', food.comment);
+      var newPost = {
+        food: food.food,
+        restaurant: restaurant.id,
+        comment: food.comment
+      }
+      $http.post('/api/foods', newPost).success(function(res) {
+        $scope.foods.push(res.newFoodPost);
+      })
     }
 
     $scope.searchFood = function(food) {

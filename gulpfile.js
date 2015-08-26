@@ -67,7 +67,7 @@ gulp.task('copy', function() {
   };
   return gulp.src('./app/**/*.html')
              .pipe(gulp.dest('./public/'))
-             .pipe(minifyHTML(opts))
+             // .pipe(minifyHTML(opts))
              .pipe(gulp.dest('./public/'));
 });
 
