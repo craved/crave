@@ -1,12 +1,9 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('foodController', ['$scope', '$http', '$location', 'resource', function($scope, $http, $location, resource) {
-    var Food = resource('foods');
+  app.controller('foodController', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.errors = [];
     $scope.foods = [];
-    $scope.restaurant = [];
-
 
     $scope.postFood = function() {
       $location.path('/post');
@@ -21,6 +18,13 @@ module.exports = function(app) {
         } else {
          $scope.foods = res;
         }
+      });
+    };
+
+    $scope.vote = function(food) {
+      var datURL = '/api/foods/' + food._id;
+      $http.put(datURL).success(function(res) {
+        food.votes++;
       });
     };
   }]);

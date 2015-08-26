@@ -1,1 +1,0 @@
-<section><h2>Top Restaurants for {{foods[0].food}}</h2><ul><li data-ng-repeat="food in foods"><h3>{{food.votes}}</h3><div data-yelp-form-directive="" data-ng-controller=yelpController data-ng-init=yelpRest(food.restaurant)></div><p>{{food.comment}}</p><div data-ng-controller=authController><button data-ng-if=isSignedIn>Vote for me!</button></div></li></ul></section>
