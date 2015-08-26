@@ -6,7 +6,7 @@
       <div data-yelp-form-directive data-ng-controller="yelpController" data-ng-init="yelpRest(food.restaurant)"></div>
       <p>{{food.comment}}</p>
       <div data-ng-controller="authController">
-        <button data-ng-if="isSignedIn" data-ng-click="vote(food)">Vote for me!</button>
+        <button data-ng-if="isSignedIn && !voted" data-ng-click="vote(food)">Vote for me!</button>
       </div>
     </li>
   </ul>
