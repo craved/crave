@@ -14,13 +14,8 @@
     <section class="loginform" data-ng-controller="authController">
       <form method="post" data-ng-if="!isSignedIn">
         <p>Sign in to vote on your Crave-orite restaurants!</p>
-        <p>
-          <input type="text" name="loginusername" placeholder="username" data-ng-model="user.username">
-        </p>
-        <p>
-          <input type="text" name="loginpassword" placeholder="password" data-ng-model="user.password">
-        </p>
-
+        <input type="text" name="loginusername" placeholder="username" data-ng-model="user.username">
+        <input type="text" name="loginpassword" placeholder="password" data-ng-model="user.password">
         <button data-ng-click="authSubmit(user)">Login</button>
         <button data-ng-click="createUser(user)">Create User</button>
       </form>
@@ -30,37 +25,16 @@
   <main data-ng-controller="foodController">
     <article id="search">
         <form data-ng-submit="searchFood(food)">
-            <h3>SEARCH FOOD ITEMS</h3>
+            <h3>What are you Craving?</h3>
 
-            <input type="text" placeholder=":input search" class="input-item" data-ng-model="food.food">
+            <input type="text" placeholder="ex. 'hamburger'" class="input-item" data-ng-model="food.food">
             <button>Search</button>
         </form>
     </article>
     <section data-ng-view>
-      <!-- start slipsum code -->
-
-      <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
-         Dramatically visualize customer directed convergence without revolutionary ROI.
-         Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
-         Dramatically maintain clicks-and-mortar solutions without functional solutions.</p>
-
-      <p>Completely synergize resource taxing relationships via premier niche markets.
-        Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service. Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables. Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
-        Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.</p>
-
-      <p>Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.
-        Dynamically innovate resource-leveling customer service for
-        state of the art customer service. Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate
-        extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables. Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.</p>
-
-      <!-- end slipsum code -->
-
     </section>
-
-    <!--  post stuff -->
     <!-- footer -->
   </main>
-  <!-- directives!  -->
   <script src="js/bundle.js"></script>
 </body>
 </html>
