@@ -45,13 +45,15 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(12);
 	__webpack_require__(13);
 	__webpack_require__(14);
-	__webpack_require__(15);
-	__webpack_require__(10);
 	__webpack_require__(16);
+	__webpack_require__(15);
 	__webpack_require__(17);
+	__webpack_require__(10);
+	__webpack_require__(18);
+	__webpack_require__(19);
+	__webpack_require__(12);
 	__webpack_require__(11);
 	__webpack_require__(9);
 	module.exports = __webpack_require__(8);
@@ -78,17 +80,21 @@
 	//directives
 	__webpack_require__(10)(craveApp);
 	__webpack_require__(11)(craveApp);
+	__webpack_require__(12)(craveApp);
 
 	//controllers
-	__webpack_require__(12)(craveApp);
 	__webpack_require__(13)(craveApp);
 	__webpack_require__(14)(craveApp);
+	__webpack_require__(15)(craveApp);
 
 	//routes
 	craveApp.config(['$routeProvider', function($routeProvider) {
 	  $routeProvider
 	  .when('/food', {
 	    templateUrl: 'templates/food.html'
+	  })
+	  .when('/post', {
+	    templateUrl: 'templates/restaurant-post.html'
 	  });
 	//   .when('/about', {
 	//     templateUrl:
@@ -30331,7 +30337,7 @@
 	  app.directive('foodDirective', function() {
 	    return {
 	      restrict: 'AC',
-	      templateURL: '../templates/food.html',
+	      templateURL: './templates/food.html',
 	      replace: true
 	    }
 	  });
@@ -30348,11 +30354,8 @@
 	  app.directive('yelpFormDirective', function() {
 	    return {
 	      restrict: 'AC',
-	      templateURL: 'templates/yelp-template.html',
-	      replace: true,
-	      scope: {
-	        yelp: '&'
-	      }
+	      replace:true,
+	      templateUrl: './templates/yelp-template.html'
 	    }
 	  });
 	};
@@ -30360,6 +30363,23 @@
 
 /***/ },
 /* 12 */
+/***/ function(module, exports) {
+
+	'use strict'
+
+	module.exports = function(app) {
+	  app.directive('restaurantPostDirective', function() {
+	    return {
+	      restrict: 'AC',
+	      templateURL: './templates/restaurant-post.html',
+	      replace: true
+	    }
+	  })
+	}
+
+
+/***/ },
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30399,7 +30419,7 @@
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30410,7 +30430,12 @@
 	    $scope.errors = [];
 	    $scope.foods = [];
 	    $scope.restaurant = [];
-	    
+
+
+	    $scope.postFood = function() {
+	      $location.path('/post');
+	    }
+
 	    $scope.searchFood = function(food) {
 	      $location.path('/food');
 	      var datURL = '/api/foods/food?food=' + food.food.replace(' ', '%20');
@@ -30418,7 +30443,7 @@
 	        if (res[0] === undefined) {
 	         $scope.foods = food;
 	        } else {
-	         $scope.foods = res; 
+	         $scope.foods = res;
 	        }
 	      });
 	    };
@@ -30427,13 +30452,25 @@
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	'use strict';
 
 	module.exports = function(app) {
 	  app.controller('yelpController', ['$scope', '$http', function($scope, $http) {
+
+	    $scope.restaurants = [];
+
+	    $scope.searchYelp = function(restaurant) {
+	      var datURL = '/api/queryYelp?term=' + restaurant.term.replace(' ', '+');
+	      console.log(datURL);
+	      $http.get(datURL).success(function(res) {
+	         $scope.restaurants = res.businesses;
+	         console.log(res);
+	      })
+	    }
+
 	    $scope.yelpRest = function(restaurant) {
 	      var datURL = 'api/yelp/' + restaurant;
 	      $http.get(datURL).success(function(res) {
@@ -30445,13 +30482,45 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.controller('cardsController', ['$scope', 'resource', function($scope, resource) {
+
+	    var User = resource('user');
+
+	    // $scope.getUserById = function(id, oneUser) {
+	    //   User.getOne(id, oneUser, function(response) {
+	    //     $scope.user = response;
+	    //   });
+	    // };
+
+	    $scope.destroy = function(id) {
+	      User.destroy(id, function(response) {
+	        console.log('removed user ' + id);
+	      });
+	    };
+
+	    $scope.submitForm = function(oneUser) {
+	      User.submitForm(oneUser, function(response) {
+	        console.log('user submitted: ' + oneUser);
+	      });
+	    };
+	  }]);
+	};
+
+
+/***/ },
+/* 17 */
 /***/ function(module, exports) {
 
 	
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30468,7 +30537,7 @@
 
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports) {
 
 	

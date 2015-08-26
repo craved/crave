@@ -6,7 +6,12 @@ module.exports = function(app) {
     $scope.errors = [];
     $scope.foods = [];
     $scope.restaurant = [];
-    
+
+
+    $scope.postFood = function() {
+      $location.path('/post');
+    }
+
     $scope.searchFood = function(food) {
       $location.path('/food');
       var datURL = '/api/foods/food?food=' + food.food.replace(' ', '%20');
@@ -14,7 +19,7 @@ module.exports = function(app) {
         if (res[0] === undefined) {
          $scope.foods = food;
         } else {
-         $scope.foods = res; 
+         $scope.foods = res;
         }
       });
     };
