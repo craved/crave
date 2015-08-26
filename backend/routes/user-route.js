@@ -6,11 +6,12 @@ module.exports = function(router) {
   router.use(bodyParser.json());
 
   router.route('/users')
-    //get all users
-    .get(function (req, res) {
-      User.find({}, function(err, users) {
-       if(err) res.status(500).json({'msg': 'User could not be created'});
-       else res.send(users);
+    //get a user
+    .get(verify, function (req, res) {
+      var userId = req.userId;
+      User.findById(userId, function(err, user) {
+       if(err) res.status(500).json({msg: 'User could not be created'});
+       else res.send(user);
       });
     })
     //create a user
@@ -20,6 +21,15 @@ module.exports = function(router) {
       user.save(function(err) {
         if(err) return res.status(500).json({msg: 'Server Error: cannot save user, \n'  + err});
         res.json({msg: 'user done been created', token:user.generateToken()});
+      });
+    })
+    //update a user
+    .put(verify, function(req, res) {
+      var userId = req.userId;
+      var key = req.body.key;
+      User.findByIdAndUpdate(userId, {$addToSet: {'votes': key}}, function(err, data) {
+        if (err) return res.status(500).json({msg: 'Server Error: cannot update user, \n' + err});
+        res.json({msg: 'user has been updated'});
       });
     })
     //delete all users
