@@ -8,6 +8,7 @@ var foodPostSchema = new Schema({
   restaurant: {type: String, required: true},
   votes: {type: Number, required: true},
   comment: {type: String, required: true},
+  key: {type: String}
 });
 
 module.exports = mongoose.model('FoodPost', foodPostSchema);

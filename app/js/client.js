@@ -9,17 +9,17 @@ require('angular-base64');
 var craveApp = angular.module('craveApp', ['ngRoute', 'ngCookies', 'base64']);
 
 //services
-require('./services/resource_services')(craveApp);
-require('./services/auth_service')(craveApp);
+require('./services/resource-service')(craveApp);
+require('./services/auth-service')(craveApp);
 
 //directives
-require('./directives/food_form_directive')(craveApp);
+require('./directives/food-form-directive')(craveApp);
 require('./directives/yelp-form-directive')(craveApp);
 require('./directives/restaurant-post-directive')(craveApp);
 
 //controllers
-require('./controllers/auth_controller')(craveApp);
-require('./controllers/food_controller')(craveApp);
+require('./controllers/auth-controller')(craveApp);
+require('./controllers/food-controller')(craveApp);
 require('./controllers/yelp-controller')(craveApp);
 
 //routes
