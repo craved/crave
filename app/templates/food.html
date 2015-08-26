@@ -1,5 +1,5 @@
 <section>
-  <h2>Top Restaurants for {{foods[0].food}}</h2>
+  <h2>Top Restaurants for {{food.food}}</h2>
   <ul>
     <li data-ng-repeat="food in foods | orderBy: '-votes'">
       <h3>{{food.votes}}</h3>
@@ -10,4 +10,5 @@
       </div>
     </li>
   </ul>
+  <aside data-restaurant-post-directive ></aside>
 </section>

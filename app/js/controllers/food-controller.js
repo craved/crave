@@ -6,9 +6,16 @@ module.exports = function(app) {
     $scope.foods = [];
     var votes = {};
 
-    $scope.postFood = function() {
-      $location.path('/post');
-    }
+    $scope.postFood = function(food, restaurant) {
+      var newPost = {
+        food: food.food,
+        restaurant: restaurant.id,
+        comment: food.comment
+      };
+      $http.post('/api/foods', newPost).success(function(res) {
+        $scope.foods.push(res.newFoodPost);
+      });
+    };
 
     $scope.searchFood = function(food) {
       $location.path('/food');
@@ -66,12 +73,11 @@ module.exports = function(app) {
       var vote = false;
       for(var i = 0; i < $scope.foods.length; i++) {
         var key = $scope.foods[i].food + $scope.foods[i].restaurant;
-        console.log(votes);
         if (key in votes) {
           vote = true;
         }
       }
       return vote;
-    }
+    };
   }]);
 };
