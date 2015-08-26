@@ -45,12 +45,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(11);
 	__webpack_require__(12);
 	__webpack_require__(13);
-	__webpack_require__(10);
 	__webpack_require__(14);
 	__webpack_require__(15);
+	__webpack_require__(10);
+	__webpack_require__(16);
+	__webpack_require__(17);
+	__webpack_require__(11);
 	__webpack_require__(9);
 	module.exports = __webpack_require__(8);
 
@@ -75,10 +77,12 @@
 
 	//directives
 	__webpack_require__(10)(craveApp);
+	__webpack_require__(11)(craveApp);
 
 	//controllers
-	__webpack_require__(11)(craveApp);
 	__webpack_require__(12)(craveApp);
+	__webpack_require__(13)(craveApp);
+	__webpack_require__(14)(craveApp);
 
 	//routes
 	craveApp.config(['$routeProvider', function($routeProvider) {
@@ -30341,6 +30345,26 @@
 	'use strict';
 
 	module.exports = function(app) {
+	  app.directive('yelpFormDirective', function() {
+	    return {
+	      restrict: 'AC',
+	      templateURL: 'templates/yelp-template.html',
+	      replace: true,
+	      scope: {
+	        yelp: '&'
+	      }
+	    }
+	  });
+	};
+
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
 	  app.controller('authController', ['$scope', 'auth', function($scope, auth) {
 	    $scope.errors = [];
 
@@ -30375,7 +30399,7 @@
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30384,35 +30408,50 @@
 	  app.controller('foodController', ['$scope', '$http', '$location', 'resource', function($scope, $http, $location, resource) {
 	    var Food = resource('foods');
 	    $scope.errors = [];
-	    $scope.foods = [];    
+	    $scope.foods = [];
+	    $scope.restaurant = [];
 	    
 	    $scope.searchFood = function(food) {
 	      $location.path('/food');
-	      console.log('search food food ', food)
-	      console.log('scope fodd food ', $scope.foods)
 	      var datURL = '/api/foods/food?food=' + food.food.replace(' ', '%20');
-	      console.log('dat url', datURL)
-	      $http.get(datURL).success(function(   res) {
-	          console.log('dat responce ', res)
-	           if (res[0] === undefined) {
-	             $scope.foods = food;
-	           } else {
-	             $scope.foods = res; 
-	           }
-	         });
+	      $http.get(datURL).success(function(res) {
+	        if (res[0] === undefined) {
+	         $scope.foods = food;
+	        } else {
+	         $scope.foods = res; 
+	        }
+	      });
 	    };
 	  }]);
 	};
 
 
 /***/ },
-/* 13 */
+/* 14 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(app) {
+	  app.controller('yelpController', ['$scope', '$http', function($scope, $http) {
+	    $scope.yelpRest = function(restaurant) {
+	      var datURL = 'api/yelp/' + restaurant;
+	      $http.get(datURL).success(function(res) {
+	        $scope.restaurant = res;
+	      });
+	    };
+	  }]);
+	};
+
+
+/***/ },
+/* 15 */
 /***/ function(module, exports) {
 
 	
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30429,7 +30468,7 @@
 
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports) {
 
 	

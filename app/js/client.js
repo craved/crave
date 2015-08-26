@@ -14,10 +14,12 @@ require('./services/auth_service')(craveApp);
 
 //directives
 require('./directives/food_form_directive')(craveApp);
+require('./directives/yelp-form-directive')(craveApp);
 
 //controllers
 require('./controllers/auth_controller')(craveApp);
 require('./controllers/food_controller')(craveApp);
+require('./controllers/yelp-controller')(craveApp);
 
 //routes
 craveApp.config(['$routeProvider', function($routeProvider) {
