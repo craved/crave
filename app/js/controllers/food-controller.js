@@ -15,6 +15,7 @@ module.exports = function(app) {
     };
 
     $scope.searchFood = function(food) {
+      $scope.foods = [];
       $location.path('/food');
       var datURL = '/api/foods/food?food=' + food.food.toLowerCase().replace(' ', '%20');
       $http.get(datURL).success(function(res) {
