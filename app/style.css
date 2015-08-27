@@ -1,6 +1,6 @@
 * {
   font-family: 'Roboto', sans-serif;
-  color: #507346;
+  color: #002F2F;
   /*font-size: 100%*/
 }
 
@@ -29,12 +29,17 @@ a{
 
 
 #header h1 {
+color: #EFECCA;
 font-size: 44px;
 }
 
+#signintext {
+  color: #FFFFFF;
+}
+
 #header, #footer {
-  background-color: #1C1D26;
-  color: #B8CAD9;
+  background-color: #002F2F;
+  color: #EFECCA;
   border-bottom: 1px solid #000;
   margin: 0;
   padding: 20px 40px;
@@ -59,9 +64,9 @@ font-size: 44px;
 }
 
 #search {
-  background-color: #FFFFFF;
+  background-color: #E6E2AF;
   font-size: 300%;
-  color: #009393;
+  color: #405952;
   text-align: center;
   width: 100%;
   margin: 0;
@@ -76,7 +81,7 @@ h3 {
 
 h3 {
   margin: 0;
-  color: #3e5942;
+  color: #405952;
   top: 120px;
   font-weight: bold;
   padding-top: 30px;
@@ -108,9 +113,32 @@ h3 {
   color: #999999;
 }
 
+td {
+  border: 1px solid red;
+}
+
+li {
+  color: #EFECCA;
+}
+
+
+.item-result {
+  overflow:hidden;
+  padding: 20px 20px 20px 20px;
+  position: relative;
+  min-height: 200px;
+}
+.item-image {
+  float: left;
+}
+.item-info {
+  float: left;
+}
+
 #yelp {
   overflow: hidden;
-  background-color: #1C1D26;
+  color: #EFECCA;
+  background-color: #405952;
   padding: 20px 20px 20px 200px;
   width: 30%;
   position: relative;
@@ -158,7 +186,7 @@ h3 {
 }
 
 #about {
-  background-color: #1C1D26;
+  background-color: #405952;
   margin: 0 auto;
   padding: 20px;
   clear: both;
@@ -181,4 +209,8 @@ h3 {
   width: 50%;
   height: auto;
   margin: 0 auto 10px auto;
+}
+
+#footer p, #footer a {
+  color: #EFECCA;
 }
