@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('yelpController', ['$scope', '$http', function($scope, $http) {
+  app.controller('yelpController', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.restaurants = [];
 
     $scope.postRestaurant = function(food, restaurant) {
@@ -11,16 +11,16 @@ module.exports = function(app) {
         comment: restaurant.comment
       };
       $http.post('/api/foods', newPost).success(function(res) {
-        $scope.restaurant.term = null;
-        $scope.restaurants = null;
-        $scope.restaurant.comment = null;
+        // $scope.restaurant.term = null;
+        // $scope.restaurants = null;
+        // $scope.restaurant.comment = null;
         $scope.foodsPresent = true;
-        console.log($scope.foods);
         if (Array.isArray($scope.foods)) {
           $scope.foods.push(res.newFoodPost);
         } else {
           $scope.foods = [res.newFoodPost];
         }
+        $location.path('/food');
       });
     };
 
