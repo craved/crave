@@ -18,5 +18,7 @@
       </li>
     </ul>
   </article>
-  <aside data-restaurant-post-directive ></aside>
+  <div data-ng-controller="authController">
+    <aside data-ng-if="isSignedIn" data-restaurant-post-directive ></aside>
+  </div>
 </section>

@@ -113,6 +113,10 @@ h3 {
   color: #999999;
 }
 
+#homepage p::first-letter {
+  text-transform: capitalize;
+}
+
 td {
   border: 1px solid red;
 }
@@ -120,7 +124,6 @@ td {
 li {
   color: #EFECCA;
 }
-
 
 .item-result {
   overflow:hidden;
@@ -213,4 +216,8 @@ li {
 
 #footer p, #footer a {
   color: #EFECCA;
+}
+
+#noRest {
+  color: #405952;
 }
