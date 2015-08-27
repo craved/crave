@@ -9,6 +9,10 @@ body {
   padding: 0;
 }
 
+a{
+  text-decoration: none;
+}
+
 #header h1 {
 font-size: 44px;
 }
@@ -93,6 +97,7 @@ h3 {
   overflow: hidden;
   background-color: #1C1D26;
   padding: 20px 20px 20px 200px;
+  width: 30%;
   position: relative;
 }
 
@@ -105,7 +110,7 @@ h3 {
 }
 
 #yelp .yelp-img {
-  float: left;
+  position: absolute;
   width: 40%;
 }
 
@@ -118,18 +123,34 @@ h3 {
   clear: both;
 }
 
+#yelp .item-image {
+ position: absolute;
+ top: 20px;
+ left: 20px;
+}
+
 #about {
   background-color: #1C1D26;
-  width: 90%;
   margin: 0 auto;
   padding: 20px;
+  clear: both;
+  height: 310px;
+  text-align: center;
+}
+
+#about h1 {
+  text-align: center;
+  font-size: 24pt;
 }
 
 #about li {
   float: left;
+  width: 30%;
+  margin: 0 auto 10px auto;
 }
 
 .profile-photo {
   width: 50%;
   height: auto;
+  margin: 0 auto 10px auto;
 }
