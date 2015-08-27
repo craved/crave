@@ -9,9 +9,24 @@ body {
   padding: 0;
 }
 
+article {
+    float: left;
+    display: inline-block;
+    width: 60%;
+    margin-left: 60px;
+}
+
+aside {
+  float: right;
+  /* display: inline-block; */
+  width: 25%;
+  margin-right: 30;
+}
+
 a{
   text-decoration: none;
 }
+
 
 #header h1 {
 color: #EFECCA;
@@ -158,6 +173,19 @@ li {
  position: absolute;
  top: 20px;
  left: 20px;
+}
+
+
+#foodPostLeft {
+    float: left;
+    margin: 10 50;
+    font-size: 40;
+}
+
+
+#foodComment {
+  clear: both;
+
 }
 
 #about {
