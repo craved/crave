@@ -65,7 +65,7 @@ gulp.task('copy', function() {
     conditionals: true,
     spare: true
   };
-  return gulp.src('./app/**/*.html')
+  return gulp.src(['./app/**/*.html', './app/**/*.css'])
              .pipe(gulp.dest('./public/'))
              // .pipe(minifyHTML(opts))
              .pipe(gulp.dest('./public/'));
