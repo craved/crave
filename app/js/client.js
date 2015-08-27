@@ -34,16 +34,10 @@ craveApp.config(['$routeProvider', function($routeProvider) {
   .when('/post', {
     templateUrl: 'templates/restaurant-post.html'
   })
+  .when('/about', {
+    templateUrl: 'templates/about.html'
+  })
   .otherwise({
     redirectTo: '/home'
   });
-//   .when('/about', {
-//     templateUrl:
-//   })
-//   .when('/login', {
-//     templateUrl:
-//   })
-//   .otherwise({
-//     redirectTo: '/'
-//   });
 }]);

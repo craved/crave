@@ -9,6 +9,10 @@ body {
   padding: 0;
 }
 
+a{
+  text-decoration: none;
+}
+
 #header h1 {
 font-size: 44px;
 }
@@ -20,6 +24,7 @@ font-size: 44px;
   margin: 0;
   padding: 20px 40px;
   position: relative;
+  clear: both;
 }
 
 .loginform {
@@ -106,7 +111,7 @@ h3 {
 
 #yelp .yelp-img {
   position: absolute;
- width: 40%;
+  width: 40%;
 }
 
 #yelp .yelp-info {
@@ -122,4 +127,30 @@ h3 {
  position: absolute;
  top: 20px;
  left: 20px;
+}
+
+#about {
+  background-color: #1C1D26;
+  margin: 0 auto;
+  padding: 20px;
+  clear: both;
+  height: 350px;
+  text-align: center;
+}
+
+#about h1 {
+  text-align: center;
+  font-size: 24pt;
+}
+
+#about li {
+  float: left;
+  width: 30%;
+  margin: 0 auto 10px auto;
+}
+
+.profile-photo {
+  width: 50%;
+  height: auto;
+  margin: 0 auto 10px auto;
 }
