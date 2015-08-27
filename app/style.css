@@ -15,6 +15,7 @@ a {
 
 
 #header h1 {
+  font-family: 'Lato', sans-serif;
   color: #F77A52;
   font-size: 44px;
 }
@@ -57,6 +58,10 @@ a {
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+#search h3 {
+  font-family: 'Lato', sans-serif;
 }
 
 #homepage {
@@ -234,6 +239,7 @@ li {
   font-size: 50;
   text-align: center;
   padding: 10px;
+  font-family: 'Lato', sans-serif;
 }
 
 #food > * {
@@ -272,6 +278,7 @@ li {
   width: 80%;
   text-align: center;
   padding: 10px;
+  font-style: italic;
 }
 
 .center {
@@ -310,4 +317,22 @@ li {
 
 #restPostList {
   padding-bottom: 40px;
+
+.button {
+  min-width: 3em;
+  border: none;
+  border-radius: 0.75em;
+  padding: 4px;
+  text-transform: uppercase;
+  background-color: #F77A52;
+  color: white;
+  box-shadow: 0 3px 0 #BF5E3F;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.button:active {
+  box-shadow: 0 1px 0 #007f25;
+  -webkit-transform: translateY(3px);
+  transform: translateY(2px);
 }

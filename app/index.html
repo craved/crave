@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic|Lato:400,700' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="https://avatars1.githubusercontent.com/u/13907863?v=3&s=200">
 </head>
 <body data-ng-app="craveApp">
@@ -19,10 +19,10 @@
         <p id="signintext">Sign in to vote on your favorite restaurants!</p>
         <input type="text" name="loginusername" placeholder="username" data-ng-model="user.username">
         <input type="password" name="loginpassword" placeholder="password" data-ng-model="user.password">
-        <button data-ng-click="authSubmit(user)">Login</button>
-        <button data-ng-click="createUser(user)">Create User</button>
+        <button class="button" data-ng-click="authSubmit(user)">Login</button>
+        <button class="button" data-ng-click="createUser(user)">Create User</button>
       </form>
-      <button data-ng-if="isSignedIn" data-ng-click="signOut(user)">Log Out</button>
+      <button class="button" data-ng-if="isSignedIn" data-ng-click="signOut(user)">Log Out</button>
     </section>
   </header>
   <main data-ng-controller="foodController">
@@ -31,7 +31,7 @@
             <h3>What are you <span class="crave">Craving</span>?</h3>
 
             <input class="craveSearch" type="text" placeholder="ex. 'hamburger'" class="input-item" data-ng-model="food.food">
-            <button class="craveSearch">Search</button>
+            <button class="craveSearch button">Search</button>
         </form>
     </article>
 
