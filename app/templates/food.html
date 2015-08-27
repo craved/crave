@@ -1,6 +1,10 @@
 <section id="food">
   <article>
     <h2>Top Restaurants for {{food.food}}</h2>
+      <div data-ng-controller="authController">
+        <p data-ng-if="!isSignedIn">Don't see your favorite restaurant? Sign in to post a restaurant</p>
+        <button data-ng-if="isSignedIn" data-ng-click="getPostForm()";>Post your favorite restaurant</button>
+      </div>
     <ul>
       <li id="noRest" data-ng-if="!foodsPresent">Sorry, no restaurants have been entered for {{food.food}}! Why don't you search your favorite below?</li>
       <li id="foodPost" data-ng-if="foodsPresent" data-ng-repeat="food in foods | orderBy: '-votes'">
@@ -17,7 +21,4 @@
       </li>
     </ul>
   </article>
-  <div data-ng-controller="authController">
-    <aside data-ng-if="isSignedIn" data-restaurant-post-directive ></aside>
-  </div>
 </section>

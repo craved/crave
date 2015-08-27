@@ -8,6 +8,10 @@ module.exports = function(app) {
     $scope.topRestaurant = {};
     var votes = {};
 
+    $scope.getPostForm = function() {
+      $location.path('/post');
+    }
+
     $scope.getFoodList = function() {
       $http.get('/api/foods').success(function(res) {
         $scope.foodList = res.foodPosts;
