@@ -1,6 +1,6 @@
 * {
   font-family: 'Roboto', sans-serif;
-  color: #507346;
+  color: #17607D;
   /*font-size: 100%*/
 }
 
@@ -14,12 +14,17 @@ a{
 }
 
 #header h1 {
+color: #77AD78;
 font-size: 44px;
 }
 
+#signintext {
+  color: #FFFFFF;
+}
+
 #header, #footer {
-  background-color: #1C1D26;
-  color: #B8CAD9;
+  background-color: #504B43;
+  color: #77AD78;
   border-bottom: 1px solid #000;
   margin: 0;
   padding: 20px 40px;
@@ -44,7 +49,7 @@ font-size: 44px;
 }
 
 #search {
-  background-color: #FFFFFF;
+  background-color: #EFECCA;
   font-size: 300%;
   color: #009393;
   text-align: center;
@@ -61,7 +66,7 @@ h3 {
 
 h3 {
   margin: 0;
-  color: #3e5942;
+  color: #6F8F72;
   top: 120px;
   font-weight: bold;
   padding-top: 30px;
@@ -93,9 +98,32 @@ h3 {
   color: #999999;
 }
 
+td {
+  border: 1px solid red;
+}
+
+li {
+  color: #FFFFFF;
+}
+
+
+.item-result {
+  overflow:hidden;
+  padding: 20px 20px 20px 20px;
+  position: relative;
+  min-height: 200px;
+}
+.item-image {
+  float: left;
+}
+.item-info {
+  float: left;
+}
+
 #yelp {
   overflow: hidden;
-  background-color: #1C1D26;
+  color: #FFFFFF;
+  background-color: #504B43;
   padding: 20px 20px 20px 200px;
   width: 30%;
   position: relative;
