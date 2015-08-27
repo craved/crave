@@ -1,15 +1,15 @@
-<section data-ng-controller="yelpController">
-  <h1>Search Yelp for your favorite restaurant for {{food.food}}</h1>
+<section  class="center" data-ng-controller="yelpController">
+  <h1 class="centerText">Search Yelp for your favorite restaurant for {{food.food}}</h1>
   <div id="search">
-   <form data-ng-submit="searchYelp(restaurant)">
+   <form class="centerText" data-ng-submit="searchYelp(restaurant)">
       <input type="text" placeholder="restaurant name" class="input-item" data-ng-model="restaurant.term">
       <button>Search</button>
     </form>
   </div>
   <ul>
-    <li data-ng-repeat="restaurant in restaurants">
-      <div data-yelp-form-directive></div>
-      <form name="commentForm" data-ng-submit="postRestaurant(food, restaurant)">
+    <li id="restPostList" data-ng-repeat="restaurant in restaurants">
+      <div class="center" data-yelp-form-directive></div>
+      <form class="centerText" name="commentForm" data-ng-submit="postRestaurant(food, restaurant)">
         <label for="commentInput">Comment</label>
         <input type="text" placeholder="tell us about the dish" name="commentInput" data-ng-model="restaurant.comment" required>
         <button type="submit" data-ng-disabled="commentForm.$invalid" >post</button>
