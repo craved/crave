@@ -13,7 +13,7 @@
     <h1>Crave</h1>
     <section class="loginform" data-ng-controller="authController">
       <form method="post" data-ng-if="!isSignedIn">
-        <p>Sign in to vote on your Crave-orite restaurants!</p>
+        <p>Sign in to vote on your favorite restaurants!</p>
         <input type="text" name="loginusername" placeholder="username" data-ng-model="user.username">
         <input type="text" name="loginpassword" placeholder="password" data-ng-model="user.password">
         <button data-ng-click="authSubmit(user)">Login</button>
@@ -32,11 +32,9 @@
         </form>
     </article>
 
-    <!-- <div data-restaurant-post-directive></div> -->
-    <button data-ng-click="postFood()">Post your crave-orite restaurant</button>
-
     <section data-ng-view>
     </section>
+
     <!-- footer -->
   </main>
   <script src="js/bundle.js"></script>
