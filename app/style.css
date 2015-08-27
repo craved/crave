@@ -9,28 +9,14 @@ body {
   padding: 0;
 }
 
-article {
-    float: left;
-    display: inline-block;
-    width: 60%;
-    margin-left: 60px;
-}
-
-aside {
-  float: right;
-  /* display: inline-block; */
-  width: 25%;
-  margin-right: 30;
-}
-
-a{
+a {
   text-decoration: none;
 }
 
 
 #header h1 {
-color: #EFECCA;
-font-size: 44px;
+  color: #EFECCA;
+  font-size: 44px;
 }
 
 #signintext {
@@ -54,7 +40,7 @@ font-size: 44px;
 }
 
 .loginform p {
- font-size: 14px;
+  font-size: 14px;
 }
 
 #signin {
@@ -177,15 +163,14 @@ li {
 
 
 #foodPostLeft {
-    float: left;
-    margin: 10 50;
-    font-size: 40;
+  float: left;
+  margin: 10 50;
+  font-size: 40;
 }
 
 
 #foodComment {
   clear: both;
-
 }
 
 #about {
@@ -212,6 +197,10 @@ li {
   width: 50%;
   height: auto;
   margin: 0 auto 10px auto;
+}
+
+#footer {
+  text-align: center;
 }
 
 #footer p, #footer a {
