@@ -8,12 +8,12 @@ module.exports = function(app) {
       var newPost = {
         food: food.food,
         restaurant: restaurant.id,
-        comment: food.comment
+        comment: restaurant.comment
       };
       $http.post('/api/foods', newPost).success(function(res) {
         $scope.restaurant.term = null;
         $scope.restaurants = null;
-        $scope.food.comment = null;
+        $scope.restaurant.comment = null;
         $scope.foodsPresent = true;
         console.log($scope.foods);
         if (Array.isArray($scope.foods)) {

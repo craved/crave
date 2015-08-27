@@ -11,7 +11,7 @@
       <div data-yelp-form-directive></div>
       <form name="commentForm" data-ng-submit="postRestaurant(food, restaurant)">
         <label for="commentInput">Comment</label>
-        <input type="text" placeholder="tell us about the dish" name="commentInput" data-ng-model="food.comment" required>
+        <input type="text" placeholder="tell us about the dish" name="commentInput" data-ng-model="restaurant.comment" required>
         <button type="submit" data-ng-disabled="commentForm.$invalid" >post</button>
       </form>
     </li>
