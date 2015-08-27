@@ -4,9 +4,14 @@ var FoodPost = require(__dirname + '/../models/FoodPost');
 module.exports = function(router) {
   router.route('/foods')
     .get(function(req, res) {
-      FoodPost.find({}, function(err, posts) {
-        if (err) return res.status(500).json({msg: 'can not get posts, \n'} + err);
-        res.json({foodPosts: posts});
+      FoodPost.aggregate(
+        [
+          {$group: {_id: "$food", votes:{$sum:"$votes"}, post:{$sum: 1}}},
+          {$sort: {votes: -1}}
+        ],
+          function(err, posts) {
+            if (err) return res.status(500).json({msg: 'can not get posts, \n'} + err);
+            res.json({foodPosts: posts});
       });
     })
     .post(function(req, res) {

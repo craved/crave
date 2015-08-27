@@ -39,5 +39,16 @@ module.exports = function(app) {
         $scope.restaurant = res;
       });
     };
+
+    $scope.getTopRest = function(dish) {
+      var datURL = '/api/foods/food?food=' + dish._id.toLowerCase().replace(' ', '%20');
+      $http.get(datURL).success(function(res) {
+        var datURL = 'api/yelp/' + res[0].restaurant;
+        $http.get(datURL).success(function(res) {
+          $scope.restaurant = res;
+        });
+      });
+    };
+
   }]);
 };

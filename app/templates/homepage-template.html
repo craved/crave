@@ -1,0 +1,18 @@
+<section>
+
+  <h1>What is Crave?</h1>
+  <p>Crave allows you to search for the best restaurants to get that specific dish that you are craving. The restaurants are posted and voted on by our community with only when question in mind. <b>Where is the absolute best place to get this dish?</b> We encourage you to leave everything else behind. Service? Atmosphere? That means nothing here, because only the best food will satisfy that craving.</p>
+
+  <h2>Don't know what you're craving? Check out our top 5  dishes with the highest votes</h2>
+
+  <div data-ng-init="getFoodList()" >
+    <ol>
+      <li data-ng-repeat="dish in foodList | limitTo:5" >
+        <p>{{dish._id}}</p>
+        <div data-yelp-form-directive data-ng-controller="yelpController" data-ng-init="getTopRest(dish)"  ></div>
+      </li>
+    </ol>
+  </div>
+
+
+</section>
