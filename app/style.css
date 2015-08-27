@@ -12,15 +12,21 @@ body {
 article {
     float: left;
     display: inline-block;
-    width: 70%;
+    width: 60%;
+    margin-left: 60px;
 }
 
 aside {
-    float: right;
-    /* display: inline-block; */
-    width: 25%;
-    margin-right: 30;
+  float: right;
+  /* display: inline-block; */
+  width: 25%;
+  margin-right: 30;
 }
+
+a{
+  text-decoration: none;
+}
+
 
 #header h1 {
 font-size: 44px;
@@ -120,7 +126,7 @@ h3 {
 
 #yelp .yelp-img {
   position: absolute;
- width: 40%;
+  width: 40%;
 }
 
 #yelp .yelp-info {
@@ -136,4 +142,43 @@ h3 {
  position: absolute;
  top: 20px;
  left: 20px;
+}
+
+
+#foodPostLeft {
+    float: left;
+    margin: 10 50;
+    font-size: 40;
+}
+
+
+#foodComment {
+  clear: both;
+
+}
+
+#about {
+  background-color: #1C1D26;
+  margin: 0 auto;
+  padding: 20px;
+  clear: both;
+  height: 350px;
+  text-align: center;
+}
+
+#about h1 {
+  text-align: center;
+  font-size: 24pt;
+}
+
+#about li {
+  float: left;
+  width: 30%;
+  margin: 0 auto 10px auto;
+}
+
+.profile-photo {
+  width: 50%;
+  height: auto;
+  margin: 0 auto 10px auto;
 }
