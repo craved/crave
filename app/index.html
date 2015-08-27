@@ -7,15 +7,18 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="https://avatars1.githubusercontent.com/u/13907863?v=3&s=200">
 </head>
 <body data-ng-app="craveApp">
   <header id="header">
-    <h1>Crave</h1>
+    <a href="#/home">
+      <h1>Crave</h1>
+    </a>
     <section class="loginform" data-ng-controller="authController">
       <form method="post" data-ng-if="!isSignedIn">
         <p>Sign in to vote on your favorite restaurants!</p>
         <input type="text" name="loginusername" placeholder="username" data-ng-model="user.username">
-        <input type="text" name="loginpassword" placeholder="password" data-ng-model="user.password">
+        <input type="password" name="loginpassword" placeholder="password" data-ng-model="user.password">
         <button data-ng-click="authSubmit(user)">Login</button>
         <button data-ng-click="createUser(user)">Create User</button>
       </form>
@@ -39,6 +42,8 @@
     <a href="https://github.com/craved/crave">
       <img src="./GitHub-Mark-Light-32px.png" alt="Link to Crave GitHub">
     </a>
+    <a href="#/about">About</a>
+    <p>Crave Team, &copy; 2015</p>
   </footer>
   <script src="js/bundle.js"></script>
 </body>

@@ -65,7 +65,7 @@ gulp.task('copy', function() {
     conditionals: true,
     spare: true
   };
-  return gulp.src('./app/**/*.html')
+  return gulp.src(['./app/**/*.html', './app/**/*.css'])
              .pipe(gulp.dest('./public/'))
              // .pipe(minifyHTML(opts))
              .pipe(gulp.dest('./public/'));
@@ -73,7 +73,7 @@ gulp.task('copy', function() {
 
 gulp.task('watch', ['build'], function() {
   gulp.watch(['app/**/*.js', '*.js', '*.css'], ['build', 'jshint']);
-  gulp.watch('app/**/*.html', ['copy']);
+  gulp.watch(['app/**/*.html', 'app/**/*.css'], ['copy']);
 });
 
 gulp.task('default', ['jshint', 'test']);

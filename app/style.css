@@ -1,0 +1,135 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  color: #507346;
+  /*font-size: 100%*/
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#header h1 {
+font-size: 44px;
+}
+
+#header, #footer {
+  background-color: #1C1D26;
+  color: #B8CAD9;
+  border-bottom: 1px solid #000;
+  margin: 0;
+  padding: 20px 40px;
+  position: relative;
+  clear: both;
+}
+
+.loginform {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+.loginform p {
+ font-size: 14px;
+}
+
+#signin {
+  font-size: 16px;
+  margin: 0;
+  color: #FFFFFF;
+}
+
+#search {
+  background-color: #FFFFFF;
+  font-size: 300%;
+  color: #009393;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+  color: #3e5942;
+  top: 120px;
+  font-weight: bold;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.style-1 input[type="text"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  width: 300px;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+
+.style-1 input[type="text"]:focus,
+.style-1 input[type="text"].focus {
+  border: solid 1px #707070;
+  width: 300px;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
+#main {
+  background-color: #1C1D26;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#main p {
+  color: #999999;
+}
+
+#yelp {
+  overflow: hidden;
+  background-color: #1C1D26;
+  padding: 20px 20px 20px 200px;
+  position: relative;
+}
+
+#yelp .yelp-votes {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width:100px;
+  height:100px;
+}
+
+#yelp .yelp-img {
+  float: left;
+  width: 40%;
+}
+
+#yelp .yelp-info {
+  float: left;
+  width: 50%;
+}
+
+#yelp .yelp-logo {
+  clear: both;
+}
+
+#about {
+  background-color: #1C1D26;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#about li {
+  float: left;
+}
+
+.profile-photo {
+  width: 50%;
+  height: auto;
+}
