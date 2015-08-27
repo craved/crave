@@ -9,6 +9,19 @@ body {
   padding: 0;
 }
 
+article {
+    float: left;
+    display: inline-block;
+    width: 70%;
+}
+
+aside {
+    float: right;
+    /* display: inline-block; */
+    width: 25%;
+    margin-right: 30;
+}
+
 #header h1 {
 font-size: 44px;
 }
@@ -20,6 +33,7 @@ font-size: 44px;
   margin: 0;
   padding: 20px 40px;
   position: relative;
+  clear: both;
 }
 
 .loginform {
