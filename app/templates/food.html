@@ -1,15 +1,22 @@
 <section>
-  <h2>Top Restaurants for {{food.food}}</h2>
-  <ul>
-    <li data-ng-if="!foodsPresent">Sorry, no restaurants have been entered for {{food.food}}! Why don't you search your favorite below?</li>
-    <li data-ng-if="foodsPresent" data-ng-repeat="food in foods | orderBy: '-votes'">
-      <h3>{{food.votes}}</h3>
-      <div data-yelp-form-directive data-ng-controller="yelpController" data-ng-init="yelpRest(food.restaurant)"></div>
-      <p>{{food.comment}}</p>
-      <div data-ng-controller="authController">
-        <button data-ng-if="isSignedIn && !voted" data-ng-click="vote(food)">Vote for me!</button>
+  <article>
+    <h2>Top Restaurants for {{food.food}}</h2>
+    <ul>
+      <li data-ng-if="!foodsPresent">Sorry, no restaurants have been entered for {{food.food}}! Why don't you search your favorite below?</li>
+      <li id="foodPost" data-ng-if="foodsPresent" data-ng-repeat="food in foods | orderBy: '-votes'">
+      <div>
+        <div id="foodPostLeft">
+          <h3>{{food.votes}}</h3>
+          <div data-ng-controller="authController">
+            <button data-ng-if="isSignedIn && !voted" data-ng-click="vote(food)">Vote for me!</button>
+          </div>
+        </div>
+          <div data-yelp-form-directive data-ng-controller="yelpController" data-ng-init="yelpRest(food.restaurant)"></div>
       </div>
-    </li>
-  </ul>
+
+        <p id="foodComment">{{food.comment}}</p>
+      </li>
+    </ul>
+  </article>
   <aside data-restaurant-post-directive ></aside>
 </section>
