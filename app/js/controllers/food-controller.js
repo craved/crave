@@ -6,25 +6,16 @@ module.exports = function(app) {
     $scope.foods = [];
     var votes = {};
 
-    $scope.postFood = function(food, restaurant) {
-      var newPost = {
-        food: food.food,
-        restaurant: restaurant.id,
-        comment: food.comment
-      };
-      $http.post('/api/foods', newPost).success(function(res) {
-        $scope.foods.push(res.newFoodPost);
-      });
-    };
-
     $scope.searchFood = function(food) {
       $location.path('/food');
-      var datURL = '/api/foods/food?food=' + food.food.replace(' ', '%20');
+      var datURL = '/api/foods/food?food=' + food.food.toLowerCase().replace(' ', '%20');
       $http.get(datURL).success(function(res) {
         if (res[0] === undefined) {
          $scope.foods = food;
+         $scope.foodsPresent = false;
         } else {
          $scope.foods = res;
+         $scope.foodsPresent = true;
         }
       });
       getVotes();
@@ -61,7 +52,6 @@ module.exports = function(app) {
         }
       };
       $http(req).then(function(res) {
-        console.log(res.data.votes)
         for (var i = 0; i < res.data.votes.length; i++) {
           votes[res.data.votes[i]] = true;
         }
