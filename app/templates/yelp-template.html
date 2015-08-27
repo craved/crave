@@ -1,10 +1,14 @@
-<div>
-  <a href="{{restaurant.url}}">
-    <img src="{{restaurant.image_url}}" alt="Yelp Thumbnail Photo">
-    <p>{{restaurant.name}}</p>
-    <img src="{{restaurant.rating_img_url_small}}" alt="Yelp Review Rating">
-    <p>{{restaurant.review_count}} Reviews</p>
-    <p>{{restaurant.location.display_address.join(' ')}}</p>
-    <img src="//s3-media2.fl.yelpcdn.com/assets/srv0/developer_pages/14f29ad24935/assets/img/yelp_logo_40x20.png" alt="Yelp Logo, mini" width="40" height="20">
+<div id="yelp">
+    <a href="{{restaurant.url}}"> 
+    <img class="yelp-img" src="{{restaurant.image_url}}" alt="Yelp Thumbnail Photo">
+
+      <ul class="yelp-info">
+      <li><p>{{restaurant.name}}</p></li>
+      <li><p>{{restaurant.location.display_address.join(' ')}}</p></li>
+      <li><img id="yelprating" src="{{restaurant.rating_img_url_small}}" alt="Yelp Review Rating"></li>
+      <li><p>{{restaurant.review_count}} Reviews</p></li>
+      </ul>
+
+    <div class="yelp-logo"><img src="//s3-media2.fl.yelpcdn.com/assets/srv0/developer_pages/14f29ad24935/assets/img/yelp_logo_40x20.png" alt="Yelp Logo, mini" width="40" height="20"></div>
   </a>
 </div>
