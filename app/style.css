@@ -301,3 +301,22 @@ li {
   padding-top: 10;
   padding-bottom: 10;
 }
+
+.button {
+  min-width: 3em;
+  border: none;
+  border-radius: 0.75em;
+  padding: 4px;
+  text-transform: uppercase;
+  background-color: #F77A52;
+  color: white;
+  box-shadow: 0 3px 0 #BF5E3F;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.button:active {
+  box-shadow: 0 1px 0 #007f25;
+  -webkit-transform: translateY(3px);
+  transform: translateY(2px);
+}
