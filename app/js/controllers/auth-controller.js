@@ -28,7 +28,6 @@ module.exports = function(app) {
 
     $scope.signOut = function(user) {
       auth.logout();
-      auth.is
     };
   }]);
 };

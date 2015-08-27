@@ -14,7 +14,8 @@ module.exports = function(router) {
         food: req.body.food,
         restaurant: req.body.restaurant,
         comment: req.body.comment,
-        votes: 0
+        votes: 1,
+        key: req.body.food + req.body.restaurant
       });
       newFoodPost.save(function(err) {
         if (err) return res.status(500).json({msg: 'Cannot save food post, \n' + err});
@@ -33,6 +34,7 @@ module.exports = function(router) {
       var foodId = req.params.food;
       FoodPost.findByIdAndUpdate(foodId, {$inc: {votes: 1}}, function(err, data) {
         if (err) return res.status(500).json({msg: 'Cannot update this food post, \n' + err});
+        console.log()
         res.json({msg: 'update successful', successful: true, data: data});
       });
     });
