@@ -4,7 +4,15 @@ module.exports = function(app) {
   app.controller('foodController', ['$scope', '$http', '$location', '$cookies', function($scope, $http, $location, $cookies) {
     $scope.errors = [];
     $scope.foods = [];
+    $scope.foodList = [];
+    $scope.topRestaurant = {};
     var votes = {};
+
+    $scope.getFoodList = function() {
+      $http.get('/api/foods').success(function(res) {
+        $scope.foodList = res.foodPosts;
+      });
+    };
 
     $scope.searchFood = function(food) {
       $location.path('/food');

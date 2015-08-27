@@ -25,11 +25,17 @@ require('./controllers/yelp-controller')(craveApp);
 //routes
 craveApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
+  .when('/home', {
+    templateUrl: 'templates/homepage-template.html'
+  })
   .when('/food', {
     templateUrl: 'templates/food.html'
   })
   .when('/post', {
     templateUrl: 'templates/restaurant-post.html'
+  })
+  .otherwise({
+    redirectTo: '/home'
   });
 //   .when('/about', {
 //     templateUrl:
