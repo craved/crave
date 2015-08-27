@@ -72,7 +72,7 @@ gulp.task('copy', function() {
 });
 
 gulp.task('watch', ['build'], function() {
-  gulp.watch(['app/**/*.js', '*.js'], ['build', 'jshint']);
+  gulp.watch(['app/**/*.js', '*.js', '*.css'], ['build', 'jshint']);
   gulp.watch('app/**/*.html', ['copy']);
 });
 
