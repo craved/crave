@@ -59,6 +59,10 @@ a {
   padding: 0;
 }
 
+#homepage, #food {
+  padding: 20px 40px;
+}
+
 h1,
 h2,
 h3 {
@@ -109,13 +113,13 @@ td {
 
 li {
   color: #EFECCA;
+  list-style-type: none;
 }
 
 .item-result {
   overflow:hidden;
   padding: 20px 20px 20px 20px;
   position: relative;
-  min-height: 200px;
 }
 .item-image {
   float: left;
@@ -153,12 +157,13 @@ li {
 
 #yelp .yelp-logo {
   clear: both;
+  text-align: right;
 }
 
 #yelp .item-image {
  position: absolute;
- top: 20px;
- left: 20px;
+ top: 40px;
+ left: 60px;
 }
 
 
@@ -209,4 +214,8 @@ li {
 
 #noRest {
   color: #405952;
+}
+
+#restName {
+  font-size: 40;
 }
