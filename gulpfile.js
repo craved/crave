@@ -73,7 +73,7 @@ gulp.task('copy', function() {
 
 gulp.task('watch', ['build'], function() {
   gulp.watch(['app/**/*.js', '*.js', '*.css'], ['build', 'jshint']);
-  gulp.watch(['app/**/*.html', 'app/**/*.css'] ['copy']);
+  gulp.watch(['app/**/*.html', 'app/**/*.css'], ['copy']);
 });
 
 gulp.task('default', ['jshint', 'test']);
