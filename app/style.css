@@ -59,7 +59,7 @@ a {
   padding: 0;
 }
 
-#homepage, #food {
+#homepage {
   padding: 20px 40px;
 }
 
@@ -167,16 +167,6 @@ li {
 }
 
 
-#foodPostLeft {
-  float: left;
-  margin: 10 50;
-  font-size: 40;
-}
-
-
-#foodComment {
-  clear: both;
-}
 
 #about {
   background-color: #405952;
@@ -218,4 +208,52 @@ li {
 
 #restName {
   font-size: 40;
+}
+
+
+#foodTitle {
+  margin: auto;
+  width: 80%;
+  font-size: 50;
+  text-align: center;
+  padding: 10px;
+}
+
+#food > * {
+  margin: auto;
+  width: 80%;
+  /*border: 3px solid #8AC007;*/
+  padding: 10px;
+}
+
+#foodPost {
+  margin: auto;
+  width: 80%;
+  /*border: 3px solid #8AC007;*/
+  padding: 10px;
+  padding-top: 40px;
+}
+
+#foodPostButton {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  padding: 10px;
+}
+
+#foodPostLeft {
+  float: left;
+  margin: auto;
+  width: 25%;
+  text-align: center;
+  font-size: 60;
+  padding: 5% 10px;
+}
+
+#foodComment {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  padding: 10px;
+
 }
