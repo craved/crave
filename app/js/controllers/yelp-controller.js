@@ -6,7 +6,7 @@ module.exports = function(app) {
 
     $scope.postRestaurant = function(food, restaurant) {
       var newPost = {
-        food: food.food,
+        food: food.food.toLowerCase(),
         restaurant: restaurant.id,
         comment: restaurant.comment
       };
