@@ -1,7 +1,7 @@
 <section  class="center" data-ng-controller="yelpController">
-  <h1 class="centerText">Search Yelp for your favorite restaurant for {{food.food}}</h1>
-  <div id="search">
-   <form class="centerText" data-ng-submit="searchYelp(restaurant)">
+  <div id="searchRest">
+    <h1 class="centerText">Search Yelp for your favorite restaurant for {{food.food}}</h1>
+    <form class="centerText" data-ng-submit="searchYelp(restaurant)">
       <input type="text" placeholder="restaurant name" class="input-item" data-ng-model="restaurant.term">
       <button>Search</button>
     </form>
