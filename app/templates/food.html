@@ -6,8 +6,8 @@
         <button data-ng-if="isSignedIn" data-ng-click="getPostForm()";>Post your favorite restaurant</button>
       </div>
     <ul>
-      <li id="noRest" data-ng-if="!foodsPresent">Sorry, no restaurants have been entered for {{food.food}}! Why don't you search your favorite below?</li>
-      <li id="foodPost" data-ng-if="foodsPresent" data-ng-repeat="food in foods | orderBy: '-votes'">
+      <li class="center" id="noRest" data-ng-if="!foodsPresent">Sorry, no restaurants have been entered for {{food.food}}! Why don't you search your favorite below?</li>
+      <li class="center" id="foodPost" data-ng-if="foodsPresent" data-ng-repeat="food in foods | orderBy: '-votes'">
         <div>
           <div id="foodPostLeft">
             <h3>{{food.votes}}</h3>
