@@ -125,6 +125,10 @@ h3 {
   font-size: 25;
 }
 
+#intro p {
+  font-size: 18;
+}
+
 td {
   border: 1px solid red;
 }
@@ -183,8 +187,6 @@ li {
  top: 40px;
  left: 60px;
 }
-
-
 
 #about {
   background-color: #1F161E;
@@ -289,7 +291,7 @@ li {
 
 .centerText {
   margin: auto;
-  width: 80%;
+  width: 90%;
   padding: 10px;
   text-align: center;
 }
@@ -336,6 +338,10 @@ li {
   box-shadow: 0 1px 0 #007f25;
   -webkit-transform: translateY(3px);
   transform: translateY(2px);
+}
+
+#searchRest {
+  background-color: #D3D3D3;
 }
 
 #dishTitle {
