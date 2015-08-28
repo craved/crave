@@ -343,3 +343,12 @@ li {
 #searchRest {
   background-color: #D3D3D3;
 }
+
+#dishTitle {
+  padding: 10px;
+  font-size: 40;
+}
+
+#dishList {
+  padding: 20px;
+}
